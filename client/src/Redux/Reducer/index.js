@@ -42,6 +42,7 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
+  /* eslint-disable no-fallthrough */
   switch (type) {
     case GET_ALL_PRODUCTS:
       return {
@@ -75,6 +76,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
           ...state,
           productFav: [...state.productFav, payload],
         };
+        // falls through
       }
 
     case DELETE_FAV_PRODUCT:
@@ -215,4 +217,5 @@ export default function rootReducer(state = initialState, { type, payload }) {
     default:
       return state;
   }
+  /* eslint-enable no-fallthrough */
 }

@@ -6,8 +6,6 @@ import { useState } from "react";
 import Cookies from "universal-cookie";
 import {
   getProductByName,
-  clearNotifications,
-  getDetailNotification,
   getUserDetail,
 } from "../../Redux/Action";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,9 +29,7 @@ export default function SearchBar({ socket, setBooleanSearchBar }) {
   const infoProductDefailt = useSelector(
     (state) => state.productsNotifications
   );
-  const [getDetails, setGetDetails] = useState(false);
   const [getName, setGetName] = useState("");
-  var infoNotifications = useSelector((state) => state.newNotification);
   const userDetail = useSelector((state) => state.userDetail);
   const history = useNavigate();
 
@@ -59,22 +55,22 @@ export default function SearchBar({ socket, setBooleanSearchBar }) {
     cookies.set("counterNoti", 0);
   }
 
-	function getDetailsOnClick() {
-		if (getName.length) {
-			dispatch(getDetailNotification(getName));
-		}
-	}
+	// function getDetailsOnClick() {
+	// 	if (getName.length) {
+	// 		dispatch(getDetailNotification(getName));
+	// 	}
+	// }
 
-	const displayNotification = ({ senderName, type }, i) => {
-		if (type === 1) {
-			//compra
-			return (
-				<div key={i} className={`${styles.notifications}`}>
-					<span>{`Muchas gracias ${senderName} por haber realizado una compra`}</span>
-				</div>
-			);
-		}
-	};
+	// const displayNotification = ({ senderName, type }, i) => {
+	// 	if (type === 1) {
+	// 		//compra
+	// 		return (
+	// 			<div key={i} className={`${styles.notifications}`}>
+	// 				<span>{`Muchas gracias ${senderName} por haber realizado una compra`}</span>
+	// 			</div>
+	// 		);
+	// 	}
+	// };
 
 
   const displayNotificationProducts = (noti) => {
@@ -137,7 +133,7 @@ export default function SearchBar({ socket, setBooleanSearchBar }) {
                 <img
                   src="https://www.svgrepo.com/show/419541/menu-list-line.svg"
                   width="40px"
-                  alt="image"
+                  alt=""
                 />
               </span>
             </button>
@@ -280,6 +276,7 @@ export default function SearchBar({ socket, setBooleanSearchBar }) {
                               src={user.picture}
                               style={{ width: "30px", marginRight: "17px" }}
                               alt=""
+                              referrerPolicy="no-referrer"
                               className={styles.imgProfile}
                             />
                           </div>
@@ -301,6 +298,7 @@ export default function SearchBar({ socket, setBooleanSearchBar }) {
                               src={user.picture}
                               style={{ width: "40%" }}
                               alt=""
+                              referrerPolicy="no-referrer"
                               className={styles.imgProfileUser}
                             />
                             <h5>UserName</h5>
