@@ -8,12 +8,14 @@ import reportWebVitals from "./reportWebVitals";
 import { Auth0Provider } from "@auth0/auth0-react";
 import axios from "axios";
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+const auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN
+const auth0ClientId = process.env.REACT_APP_AUTH0_CLIENTID
 
 ReactDOM.render(
   <>
     <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENTID}
+      domain={auth0Domain}
+      clientId={auth0ClientId}
       redirectUri={window.location.origin}
     >
       <Provider store={store}>
