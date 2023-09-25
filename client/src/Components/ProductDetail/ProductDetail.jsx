@@ -235,7 +235,7 @@ export default function ProductDetail() {
       Swal.fire({
         showConfirmButton: false,
         showCloseButton: true,
-        imageUrl: "https://i.ibb.co/Yj89rCZ/MP.png",
+        imageUrl: "https://res.cloudinary.com/dctg3t4zg/image/upload/v1695657205/gaedjm-products/Formas%20de%20pago/MP_yzurmq.png",
         background: "#111111",
         allowOutsideClick: false,
         allowEnterKey: false,
@@ -262,7 +262,7 @@ export default function ProductDetail() {
         showConfirmButton: false,
         showCloseButton: true,
         html:
-          `<img src="https://i.ibb.co/rsDHGDg/nike2.gif" />` +
+          `<img src="https://res.cloudinary.com/dctg3t4zg/image/upload/v1695657023/gaedjm-products/Formas%20de%20pago/nike2_hbunnn.gif" />` +
           `<h2 style="color: #b8b8b8;">ENVIOS A TODO EL PAIS</h2>` +
           `<b style="color: #982334;">
 						Si vives en Buenos Aires su pedido se entregará en los próximos 4
